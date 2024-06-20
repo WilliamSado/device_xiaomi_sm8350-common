@@ -93,6 +93,18 @@ class XiaomiUdfpsHander : public UdfpsHandler {
         // nothing
     }
 
+    void preEnroll() {
+        // nothing
+    }
+
+    void enroll() {
+        // nothing
+    }
+
+    void postEnroll() {
+        // nothing
+    }
+
     void onAcquired(int32_t result, int32_t vendorCode) {
         if (result == FINGERPRINT_ACQUIRED_GOOD) {
             set(FOD_HBM_PATH, FOD_HBM_OFF);
