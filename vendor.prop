@@ -3,6 +3,7 @@ ro.config.vc_call_vol_default=9
 ro.config.vc_call_vol_steps=11
 
 # Bluetooth
+bluetooth.device.default_name=Mi 11 Pro
 persist.sys.fflag.override.settings_bluetooth_hearing_aid=true
 persist.vendor.qcom.bluetooth.a2dp_mcast_test.enabled=false
 persist.vendor.qcom.bluetooth.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-aptxadaptiver2

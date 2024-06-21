@@ -11,13 +11,17 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_ven
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # Inherit proprietary targets
-$(call inherit-product, vendor/xiaomi/sm8350-common/sm8350-common-vendor.mk)
+$(call inherit-product, vendor/xiaomi/mars/mars-vendor.mk)
 
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # API
 PRODUCT_SHIPPING_API_LEVEL := 30
+
+# Audio configs
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_lahaina/audio_policy_configuration.xml
 
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -69,6 +73,10 @@ PRODUCT_COPY_FILES += \
 # DebugFS
 PRODUCT_SET_DEBUGFS_RESTRICTIONS := true
 
+# Dolby
+PRODUCT_PACKAGES += \
+    XiaomiDolby
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.4-service.clearkey \
@@ -80,8 +88,9 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
+    vendor.goodix.hardware.biometrics.fingerprint@2.1.vendor \
     android.hardware.biometrics.fingerprint@2.3-service.xiaomi \
-    libudfpshandler
+    libudfpshandler \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
@@ -162,10 +171,19 @@ PRODUCT_PACKAGES += \
 
 # Overlays
 PRODUCT_PACKAGES += \
+    CertificationOverlayMars \
+    DolbyMars \
+    FrameworksOverlayMars \
+    SettingsOverlayMars \
+    SettingsProviderOverlayMars \
+    SystemUIOverlayMars \
+    TargetWifiOverlay
+    CarrierConfigOverlay \
     XiaomiSM8350FrameworksAOSPAOverlay \
     XiaomiSM8350FrameworksOverlay \
     XiaomiSM8350SettingsOverlay \
-    XiaomiSM8350SystemUIOverlay
+    XiaomiSM8350SystemUIOverlay \
+    WifiOverlay
 
 # Partitions
 PRODUCT_BUILD_SUPER_PARTITION := false
@@ -177,6 +195,10 @@ PRODUCT_COPY_FILES += \
 
 # Platform
 TARGET_BOARD_PLATFORM := lahaina
+
+# PowerShare
+PRODUCT_PACKAGES += \
+    vendor.aospa.powershare-service
 
 # QC common
 TARGET_COMMON_QTI_COMPONENTS := \
@@ -199,10 +221,6 @@ TARGET_COMMON_QTI_COMPONENTS := \
     wfd \
     wlan
 
-# RIL
-PRODUCT_PACKAGES += \
-    CarrierConfigOverlay
-
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@2.1-service.xiaomi-multihal \
@@ -218,6 +236,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.proximity.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.proximity.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepcounter.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepcounter.xml \
     frameworks/native/data/etc/android.hardware.sensor.stepdetector.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.sensor.stepdetector.xml
+
+PRODUCT_PACKAGES += \
+    sensors.xiaomi.mars
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -259,11 +283,8 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/android.software.verified_boot.xml \
     frameworks/native/data/etc/android.software.verified_boot.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.verified_boot.xml
 
-# WiFi
-PRODUCT_PACKAGES += \
-    WifiOverlay
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/wpa_supplicant_overlay.conf \
     $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
+

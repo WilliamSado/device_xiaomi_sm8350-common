@@ -5,7 +5,7 @@
 //
 
 cc_library_static {
-    name: "libpowerfeature_ext_xiaomi-sm8350",
+    name: "libpowerfeature_ext_xiaomi-mars",
     srcs: ["power-mode.cpp"],
     shared_libs: [
         "libbase",
