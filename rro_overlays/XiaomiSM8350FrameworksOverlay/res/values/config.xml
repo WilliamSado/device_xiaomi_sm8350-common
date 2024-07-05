@@ -99,6 +99,12 @@
         <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
     </integer-array>
 
+    <!-- Default files to pin via Pinner Service -->
+    <string-array translatable="false" name="config_defaultPinnerServiceFiles">
+        <item>"/vendor/lib64/libcamxtintlessalgo.so"</item>
+        <item>"/vendor/lib64/camera/components/com.qti.eisv2.so"</item>
+    </string-array>
+
     <!-- Color mode to use when accessibility transforms are enabled. This color mode must be
          supported by the device, but not necessarily appear in config_availableColorModes. The
          regularly selected color mode will be used if this value is negative. -->
