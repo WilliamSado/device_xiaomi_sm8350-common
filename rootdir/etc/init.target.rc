@@ -66,7 +66,9 @@ on init
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
     chown system system /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
     chmod 0660 /sys/devices/platform/soc/1d84000.ufshc/auto_hibern8
-
+    chown system system /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_exposure
+    chmod 0644 /sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_exposure
+    
 on early-fs
     start vold
     exec_background u:r:vendor_modprobe:s0 -- /vendor/bin/modprobe -a -d /vendor/lib/modules/ cnss2
