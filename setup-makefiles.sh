@@ -48,6 +48,9 @@ function lib_to_package_fixup_vendor_variants() {
             com.qualcomm.qti.imscmservice* | \
             com.qualcomm.qti.uceservice* | \
             libmmosal | \
+            libmegface | \
+            libqcbor | \
+            libminksocket | \
             vendor.qti.data.* | \
             vendor.qti.diaghal@1.0 | \
             vendor.qti.hardware.data.* | \
