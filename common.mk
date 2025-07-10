@@ -207,6 +207,12 @@ PRODUCT_COPY_FILES += \
 # Platform
 TARGET_BOARD_PLATFORM := lahaina
 
+# Powershare
+ifeq ($(TARGET_HAS_POWERSHARE),true)
+PRODUCT_PACKAGES += \
+    vendor.aospa.powershare-service
+endif
+
 # QC common
 TARGET_COMMON_QTI_COMPONENTS := \
     adreno \
