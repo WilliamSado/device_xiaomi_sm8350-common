@@ -9,6 +9,7 @@ from extract_utils.fixups_blob import (
     blob_fixups_user_type,
 )
 from extract_utils.fixups_lib import (
+    lib_fixup_remove,
     lib_fixups,
     lib_fixups_user_type,
 )
@@ -27,9 +28,6 @@ namespace_imports = [
     "vendor/qcom/common/vendor/media-5.4",
     "vendor/qcom/common/vendor/wlan-legacy",
 ]
-
-def lib_fixup_sm8350_suffix(lib: str, partition: str, *args, **kwargs):
-    return f'{lib}_sm8350' if partition in ('odm', 'vendor') else None
 
 def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
     return f'{lib}_vendor' if partition in ('odm', 'vendor') else None 
@@ -128,10 +126,14 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.qti.ims.rcsconfig@2.0',
         'vendor.qti.ims.rcsconfig@2.1',
         'vendor.qti.imsrtpservice@3.0',
+        'vendor.qti.imsrtpservice@3.0-service-Impl',
         'vendor.qti.latency@2.0',
         'vendor.qti.latency@2.1',
         'vendor.qti.qspmhal@1.0',
     ): lib_fixup_vendor_suffix,
+    (
+        'libwpa_client',
+    ): lib_fixup_remove,
 }
 
 blob_fixups: blob_fixups_user_type = {
