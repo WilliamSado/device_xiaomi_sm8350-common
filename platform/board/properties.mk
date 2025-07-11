@@ -1,0 +1,6 @@
+# Properties
+PROPERTIES_COMMON_PATH := device/xiaomi/sm8350-common/platform/props
+TARGET_ODM_PROP += $(PROPERTIES_COMMON_PATH)/odm.prop
+TARGET_SYSTEM_PROP += $(PROPERTIES_COMMON_PATH)/system.prop
+TARGET_SYSTEM_EXT_PROP += $(PROPERTIES_COMMON_PATH)/system_ext.prop
+TARGET_VENDOR_PROP += $(PROPERTIES_COMMON_PATH)/vendor.prop

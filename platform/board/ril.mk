@@ -1,0 +1,2 @@
+# RIL
+ENABLE_VENDOR_RIL_SERVICE := true
