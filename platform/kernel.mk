@@ -1,0 +1,2 @@
+# Kernel
+PRODUCT_ENABLE_UFFD_GC := true
