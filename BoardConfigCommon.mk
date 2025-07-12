@@ -15,6 +15,9 @@ include $(BOARD_CONFIG_COMMON_PATH)/audio.mk
 # Board
 include $(BOARD_CONFIG_COMMON_PATH)/board.mk
 
+# BuildRule
+include $(BOARD_CONFIG_COMMON_PATH)/build_rule.mk
+
 # Filesystem
 include $(BOARD_CONFIG_COMMON_PATH)/filesystem.mk
 
