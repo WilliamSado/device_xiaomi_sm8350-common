@@ -1,6 +1,6 @@
 # Sepolicy
 SEPOLICY_COMMON_PATH := device/xiaomi/sm8350-common/platform/sepolicy
-include device/qcom/sepolicy_vndr/SEPolicy.mk
+include device/qcom/sepolicy_vndr-legacy-um
 include hardware/sony/timekeep/sepolicy/SEPolicy.mk
 
 SYSTEM_EXT_PRIVATE_SEPOLICY_DIRS += $(SEPOLICY_COMMON_PATH)/private
