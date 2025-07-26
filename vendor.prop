@@ -148,9 +148,6 @@ ro.bluetooth.a2dp_offload.supported=true
 camera.disable_zsl_mode=true
 ro.hardware.camera=xiaomi
 
-# Chipset
-ro.soc.manufacturer=QTI
-
 # Crypto
 ro.crypto.dm_default_key.options_format.version=2
 ro.crypto.volume.metadata.method=dm-default-key
@@ -226,6 +223,13 @@ ro.vendor.nfc.repair=1
 ro.vendor.se.type=eSE,HCE,UICC
 
 # Perf
+ro.vendor.beluga.c=0x4800
+ro.vendor.beluga.p=0x3
+ro.vendor.beluga.s=0x900
+ro.vendor.beluga.t=0x240
+ro.vendor.perf-hal.ver=2.2
+ro.vendor.perf.scroll_opt=1
+ro.vendor.qspm.enable=true
 ro.vendor.extension_library=libqti-perfd-client.so
 ro.vendor.perf.scroll_opt=0
 

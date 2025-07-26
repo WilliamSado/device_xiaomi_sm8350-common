@@ -355,6 +355,21 @@ PRODUCT_PACKAGES += \
 $(call soong_config_set,lineage_powershare,powershare_path,/sys/class/qcom-battery/reverse_chg_mode)
 endif
 
+# QC common
+TARGET_COMMON_QTI_COMPONENTS := \
+    alarm \
+    audio \
+    av \
+    bt \
+    display \
+    gps \
+    init \
+    overlay \
+    perf \
+    sepolicy \
+    telephony \
+    wfd
+
 # QTI
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml \
