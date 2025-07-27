@@ -191,4 +191,9 @@
          manually by the user. Off by default, since the expected haptic feedback may not be
          available on some devices. -->
     <bool name="config_enableHapticTextHandle">true</bool>
+
+    <!-- Default volume panel position in portrait mode
+         0: Left side (default)
+         1: Right side -->
+    <integer name="config_volumePanelPosPortDefault">1</integer>
 </resources>
