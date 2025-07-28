@@ -231,7 +231,6 @@ ro.vendor.perf-hal.ver=2.2
 ro.vendor.perf.scroll_opt=1
 ro.vendor.qspm.enable=true
 ro.vendor.extension_library=libqti-perfd-client.so
-ro.vendor.perf.scroll_opt=0
 
 # Radio
 keyguard.no_require_sim=true

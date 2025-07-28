@@ -28,6 +28,9 @@ PRODUCT_SHIPPING_API_LEVEL := 30
 
 # Audio
 PRODUCT_PACKAGES += \
+    audio.primary.lahaina \
+    liba2dpoffload \
+    libssrec \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
@@ -497,6 +500,7 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
     hostapd \
     libwifi-hal-qcom \
+    libwpa_client \
     wpa_cli \
     wpa_supplicant \
     wpa_supplicant.conf
